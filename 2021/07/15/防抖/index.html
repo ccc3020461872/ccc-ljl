@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇文章, 日常 分享 求职">
+    <meta name="keywords" content="防抖, 日常 分享 求职">
     <meta name="description" content="我的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的第一篇文章 | 陈磊的网站</title>
+    <title>防抖 | 陈磊的网站</title>
     <link rel="icon" type="image/png" href="/ccc-ljl/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/ccc-ljl/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/ccc-ljl/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/ccc-ljl/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇文章</h1>
+                    <h1 class="description center-align post-title">防抖</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/ccc-ljl/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,21 +447,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-07-13
+                    2021-07-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-07-13
+                    2021-07-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    17
+                    366
                 </div>
                 
 
@@ -484,7 +488,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>啊哈哈哈哈哈哈i嘻嘻嘻啦啦啦啦啦啦</p>
+                <p>在进行窗口 resize,scroll,输入框内容校验等操作是，如果事件处理函数的调用频率无限制，会加重浏览器的负担，导致用户体验非常糟糕</p>
+<p>此时我们可以采用 debounce(防抖)和 throttle(节流)的方式来减少调用频率，同事又不影响实际效果，我封装了一个防抖函数</p>
+<p>const debounce = function(func,delay){</p>
+<p>let timer = null</p>
+<p>let context = this</p>
+<p>let args = arguments</p>
+<p>return function(){</p>
+<p>clearTimeout(timer)</p>
+<p>timer = settimeOut(function(){</p>
+<p>func.call(context,arguments)</p>
+<p>},delay)</p>
+<p>}</p>
+<p>}</p>
+<p>这个函数有四个难点，</p>
+<p>1.如果 return 直接返回 func，那么事件还没有触发就会直接调用，所以要用高阶函数，</p>
+<p>2.应为要清除定时器，所以定时器要有名字，如果在返回函数里面定义变量，那么就没有防抖效果，应为每次清除之后，又重新赋值，所以没有意义，所以要采用闭包，将变量在返回函数的外部定义，根据作用域链，内部函数会访问外部变量，那么基本的防抖效果就能实现了</p>
+<p>3.定时器里面的 this.的指向是 window，但我们使用的时候希望 this 只想这个触发事件的对象，所以要使用 call 方法来调用函数，并且改变 this 指向</p>
+<p>4.函数调用的时候如果需要调用参数，我也设置了 arrguments</p>
+<p>md 文档敲代码好麻烦啊啊啊啊啊</p>
 
                 
             </div>
@@ -511,7 +533,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ccc3020461872.github.io/ccc-ljl/ccc-ljl/2021/07/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">https://ccc3020461872.github.io/ccc-ljl/ccc-ljl/2021/07/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</a>
+                    <a href="https://ccc3020461872.github.io/ccc-ljl/ccc-ljl/2021/07/15/%E9%98%B2%E6%8A%96/">https://ccc3020461872.github.io/ccc-ljl/ccc-ljl/2021/07/15/%E9%98%B2%E6%8A%96/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,7 +570,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/ccc-ljl/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -718,17 +744,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/ccc-ljl/2021/07/13/%E6%B5%8B%E8%AF%951/">
+                <a href="/ccc-ljl/2021/07/15/%E9%98%B2%E6%8A%96/">
                     <div class="card-image">
                         
                         
-                        <img src="/ccc-ljl/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/ccc-ljl/medias/featureimages/4.jpg" class="responsive-img" alt="防抖">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">防抖</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,9 +765,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -749,6 +776,15 @@
                         </span>
                     </div>
                 </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/ccc-ljl/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -756,16 +792,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/ccc-ljl/2021/07/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
+                <a href="/ccc-ljl/2021/07/13/%E6%B5%8B%E8%AF%951/">
                     <div class="card-image">
                         
                         
-                        <img src="/ccc-ljl/medias/featureimages/7.jpg" class="responsive-img" alt="我的第一篇文章">
+                        <img src="/ccc-ljl/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">我的第一篇文章</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -786,7 +822,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
